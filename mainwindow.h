@@ -15,7 +15,12 @@ public:
     ~MainWindow();
 
 protected:
-    void keyPressEvent(QKeyEvent *keyEvent);
+    void keyPressEvent(QKeyEvent *);
+    void keyReleaseEvent(QKeyEvent *);
+    void mouseDoubleClickEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
+    void mousePressEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *);
 
 private:
     Ui::MainWindow *_ui;

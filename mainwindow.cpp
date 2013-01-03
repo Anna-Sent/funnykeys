@@ -43,14 +43,14 @@ MainWindow::MainWindow(QWidget *parent):
 
 int MainWindow::_terminateSequence[] = { Qt::Key_E, Qt::Key_X, Qt::Key_I, Qt::Key_T };
 
-void MainWindow::keyPressEvent(QKeyEvent *keyEvent)
+void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     grabKeyboard();
     grabMouse();
 
     for (int i = 0; i < _letters.size(); ++i)
     {
-        if (_letters[i].isCatched(keyEvent))
+        if (_letters[i].isCatched(event))
         {
             QPixmap image = _letters[i].image();
             if (image.isNull())
@@ -73,7 +73,7 @@ void MainWindow::keyPressEvent(QKeyEvent *keyEvent)
         }
     }
 
-    if (keyEvent->key() == _terminateSequence[_terminateCounter])
+    if (event->key() == _terminateSequence[_terminateCounter])
     {
         _terminateCounter++;
         if (_terminateCounter * sizeof(int) == sizeof(_terminateSequence))
@@ -85,6 +85,36 @@ void MainWindow::keyPressEvent(QKeyEvent *keyEvent)
     {
         _terminateCounter = 0;
     }
+}
+
+void MainWindow::keyReleaseEvent(QKeyEvent *event)
+{
+    grabKeyboard();
+    grabMouse();
+}
+
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    grabKeyboard();
+    grabMouse();
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    grabKeyboard();
+    grabMouse();
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    grabKeyboard();
+    grabMouse();
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    grabKeyboard();
+    grabMouse();
 }
 
 MainWindow::~MainWindow()

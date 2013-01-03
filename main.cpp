@@ -9,5 +9,7 @@ int main(int argc, char *argv[])
     w.showFullScreen();
     w.grabKeyboard();
     w.grabMouse();
+
+    //test
     return a.exec();
 }

@@ -87,31 +87,31 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MainWindow::keyReleaseEvent(QKeyEvent *event)
+void MainWindow::keyReleaseEvent(QKeyEvent *)
 {
     grabKeyboard();
     grabMouse();
 }
 
-void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *)
 {
     grabKeyboard();
     grabMouse();
 }
 
-void MainWindow::mouseMoveEvent(QMouseEvent *event)
+void MainWindow::mouseMoveEvent(QMouseEvent *)
 {
     grabKeyboard();
     grabMouse();
 }
 
-void MainWindow::mousePressEvent(QMouseEvent *event)
+void MainWindow::mousePressEvent(QMouseEvent *)
 {
     grabKeyboard();
     grabMouse();
 }
 
-void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+void MainWindow::mouseReleaseEvent(QMouseEvent *)
 {
     grabKeyboard();
     grabMouse();

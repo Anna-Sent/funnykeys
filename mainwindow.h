@@ -15,17 +15,20 @@ public:
     ~MainWindow();
 
 protected:
+    void closeEvent(QCloseEvent *);
     void keyPressEvent(QKeyEvent *);
     void keyReleaseEvent(QKeyEvent *);
     void mouseDoubleClickEvent(QMouseEvent *);
     void mouseMoveEvent(QMouseEvent *);
     void mousePressEvent(QMouseEvent *);
     void mouseReleaseEvent(QMouseEvent *);
+    void paintEvent(QPaintEvent *);
+    void showEvent(QShowEvent *);
 
 private:
     Ui::MainWindow *_ui;
-    QList<Letter> _letters;
-    static int _terminateSequence[];
+    QList<PictureLetter> _letters;
+    static SimpleLetter _terminateSequence[];
     int _terminateCounter;
 };
 

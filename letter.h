@@ -4,19 +4,27 @@
 #include <QKeyEvent>
 #include <QPixmap>
 
-class Letter
+class SimpleLetter
+{
+protected:
+    int _key;
+    QString _letter;
+
+public:
+    SimpleLetter(int key, QString letter);
+    bool isCatched(QKeyEvent *) const;
+};
+
+class PictureLetter : public SimpleLetter
 {
 private:
     int _counter;
     QPixmap _image;
     QList<QString> _imageFileNames;
-    int _key;
-    QString _letter;
     static QPixmap *_nullImage;
 
 public:
-    Letter(int key, QString letter);
-    bool isCatched(QKeyEvent *) const;
+    PictureLetter(int key, QString letter);
     const QPixmap &image();
 };
 

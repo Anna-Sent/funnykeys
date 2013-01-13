@@ -2,9 +2,20 @@
 
 #include "letter.h"
 
-QPixmap *Letter::_nullImage = NULL;
+SimpleLetter::SimpleLetter(int key, QString letter) : _key(key), _letter(letter)
+{
+}
 
-Letter::Letter(int key, QString letter) : _counter(0), _key(key), _letter(letter)
+bool SimpleLetter::isCatched(QKeyEvent *keyEvent) const
+{
+    return
+            QString::compare(_letter, keyEvent->text(), Qt::CaseInsensitive) == 0
+            || _key == keyEvent->key();
+}
+
+QPixmap *PictureLetter::_nullImage = NULL;
+
+PictureLetter::PictureLetter(int key, QString letter) : SimpleLetter(key, letter), _counter(0)
 {
     if (_nullImage == NULL)
     {
@@ -25,14 +36,7 @@ Letter::Letter(int key, QString letter) : _counter(0), _key(key), _letter(letter
     }
 }
 
-bool Letter::isCatched(QKeyEvent *keyEvent) const
-{
-    return
-            QString::compare(_letter, keyEvent->text(), Qt::CaseInsensitive) == 0
-            || _key == keyEvent->key();
-}
-
-const QPixmap &Letter::image()
+const QPixmap &PictureLetter::image()
 {
     int imageCount = _imageFileNames.size();
     if (imageCount > 0)
